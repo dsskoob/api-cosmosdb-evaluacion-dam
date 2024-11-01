@@ -1,18 +1,15 @@
 from pydantic import BaseModel, Field, EmailStr
 from typing import List, Optional
  
-class Participante(BaseModel):
-    id: str = Field(..., example='p1')
-    name: str= Field(..., example='Juan')
+class usuario(BaseModel):
+    id: str = Field(..., example='u1')
+    nombre: str= Field(..., example='Juan')
     email: EmailStr = Field(..., example='juan.perez@example.com')
-    registration_date: str = Field(..., example='2024-10-23T19:00:00Z')
+    edad: int= Field(..., example=28)
  
  
-class Evento(BaseModel):
-    id: str = Field(..., example='e1')
-    name: str = Field(..., example='Conferencia Tech 2024')
-    description: Optional[str] = Field(None, example='Una conferencia sobre las ultimas tendencias en tecnologia')
-    date: str = Field(..., example='2024-10-23T19:00:00Z')
-    location: str = Field(..., example='Centro de convenciones Ciudad')
-    capacity: int = Field(..., ge =1, example=300)
-    participants: List[Participante] = Field(default_factory=list)
+class proyecto(BaseModel):
+    id: str = Field(..., example='p1')
+    nombre: str= Field(..., example='GDEMP-1000')
+    descripcion: str= Field(..., example='Proyecto 1')
+    id_usuario: str= Field(..., example='u1')
